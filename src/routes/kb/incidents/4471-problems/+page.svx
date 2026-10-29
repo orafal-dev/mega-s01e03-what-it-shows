@@ -4,7 +4,7 @@ title: '#4471 · two problems merged as one'
 owner: Rafał Olszewski
 status: open
 reviewed: 2026-10-29
-signature: Rafał Olszewski
+signature: v1.eyJzdG9yeSI6Im9mZiIsInN1YiI6IjU1MzgiLCJhdWQiOiJjaGFsbGVuZ2U6d2hhdC1pdC1zaG93cyIsImlhdCI6MTc5MzMwMDQ2MywiZXhwIjoxNzkzMzg2ODYzfQ.txAUf5PI3g7-c6-tp0Tzl8E0X_J4iHsHPFdqQNI2KtI
 ---
 
 <script>
@@ -12,7 +12,7 @@ signature: Rafał Olszewski
   import Callout from '#lib/kb/Callout.svelte';
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
 
-  const signature = 'Rafał Olszewski';
+  const signature = 'v1.eyJzdG9yeSI6Im9mZiIsInN1YiI6IjU1MzgiLCJhdWQiOiJjaGFsbGVuZ2U6d2hhdC1pdC1zaG93cyIsImlhdCI6MTc5MzMwMDQ2MywiZXhwIjoxNzkzMzg2ODYzfQ.txAUf5PI3g7-c6-tp0Tzl8E0X_J4iHsHPFdqQNI2KtI';
 </script>
 
 Ticket **#4471** was marked known as one parser bug. The export’s own cause logic

@@ -1,0 +1,4 @@
+*.log
+.log/
+.ticket
+log/
