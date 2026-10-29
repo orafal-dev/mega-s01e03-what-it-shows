@@ -1,0 +1,53 @@
+---
+layout: runbook
+title: '#4471 · two problems merged as one'
+owner: Rafał Olszewski
+status: open
+reviewed: 2026-10-29
+signature: Rafał Olszewski
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+
+  const signature = 'Rafał Olszewski';
+</script>
+
+Ticket **#4471** was marked known as one parser bug. The export’s own cause logic
+shows **two** causes inside the merge. Engineering needs one ticket per cause.
+
+## What the merge holds
+
+<CauseTable ticket={4471} />
+
+## The problems
+
+### 1. `parser` — 379 reports
+
+The shared parser reads every date month first. Day-first tenants (GB, NL, PL, …)
+write day first, so month and day flip. Channels: app, email, and booking-v2 forms
+(hint `DD/MM/YYYY`).
+
+### 2. `hint` — 33 reports
+
+Same day-first tenants on **booking-v3**. The form prints `MM/DD/YYYY` under the
+date field; people type month first; the form still reads the value the tenant’s
+way (day first). That is a different bug from the shared parser. CauseTable already
+flags these rows as not this ticket.
+
+<Callout>
+#4471 is not one known issue. Split it: keep the parser majority on #4471, give
+`hint` its own ticket, and stop merging by subject alone across causes.
+</Callout>
+
+## Tickets filed
+
+- GitHub issue for `parser` — **379** reports
+- GitHub issue for `hint` — **33** reports
+
+Counts use `uniqueById` on `reports-4471.json` (412 unique of 427 export rows),
+then `groupByCause` / `causeOf` from `#lib/kb/causes`.
+
+<RenderStamp {signature} />
